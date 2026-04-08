@@ -1,0 +1,13 @@
+# Environnement virtuel
+.venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# Données temporaires/personnelles
+temp/
