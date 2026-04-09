@@ -11,3 +11,4 @@ __pycache__/
 
 # Données temporaires/personnelles
 temp/
+.ruff_cache/
