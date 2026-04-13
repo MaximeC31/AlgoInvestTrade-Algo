@@ -29,7 +29,7 @@ def parse_csv(filepath: str) -> list[dict[str, str | float]]:
 
 
 def bruteforce_algo(
-    actions: list[dict[str, str | float]], budget: float = 500.0
+    actions: list[dict[str, str | float]], budget: float
 ) -> tuple[tuple[dict[str, str | float]], float, float]:
     initial_budget: float = budget
     combinaisons_total: list[tuple[tuple[dict[str, str | float]], float, float]] = []
