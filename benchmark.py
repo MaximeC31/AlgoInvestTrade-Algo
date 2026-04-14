@@ -11,7 +11,7 @@ BUDGET: float = 500.0
 MAX_ACTIONS: int = 21
 
 
-def parse_csv(filepath: str) -> list[dict[str, str | float]]:
+def parse(filepath: str) -> list[dict[str, str | float]]:
     raw_rows: list[dict[str, str]] = []
     with open(filepath, newline="") as csvfile:
         reader = csv.DictReader(csvfile)
@@ -34,14 +34,7 @@ def parse_csv(filepath: str) -> list[dict[str, str | float]]:
     return actions
 
 
-def main() -> None:
-    if len(sys.argv) != 2:
-        print("Usage: python benchmark.py <filepath>")
-        sys.exit(1)
-    filepath: str = sys.argv[1]
-
-    actions = parse_csv(filepath)
-
+def benchmark(actions: list[dict[str, str | float]]) -> None:
     times_bruteForce: list[float] = []
     times_optimized: list[float] = []
     cumul_bruteForce: float = 0.0
@@ -85,6 +78,16 @@ def main() -> None:
     plt.tight_layout(rect=[0, 0.04, 1, 1])  # type: ignore
     plt.savefig("benchmark.png")  # type: ignore
     print("Graphique sauvegardé dans benchmark.png")
+
+
+def main() -> None:
+    if len(sys.argv) != 2:
+        print("Usage: python benchmark.py <filepath>")
+        sys.exit(1)
+    filepath: str = sys.argv[1]
+
+    actions = parse(filepath)
+    benchmark(actions)
 
 
 if __name__ == "__main__":

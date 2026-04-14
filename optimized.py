@@ -28,7 +28,7 @@ def parse_csv(filepath: str) -> list[dict[str, str | float]]:
 
 
 def optimized_algo(
-    actions: list[dict[str, str | float]], budget: float = 500.0
+    actions: list[dict[str, str | float]], budget: float
 ) -> tuple[list[dict[str, str | float]], float, float]:
     actions = sorted(actions, key=lambda x: float(x["profit"]), reverse=True)
 
