@@ -40,7 +40,6 @@ def bruteforce_algo(
                 total_profit: float = sum(float(a["price"]) * float(a["profit"]) for a in combo)
                 remaining_budget: float = initial_budget - total_cost
                 combinaisons_total.append((combo, total_profit, remaining_budget))
-            print(f"Combinaisons testées : {len(combinaisons_total)}", end="\r")
 
     combinaisons_total.sort(key=lambda combo: combo[1], reverse=True)
     best_combo, best_profit, best_remaining = combinaisons_total[0]

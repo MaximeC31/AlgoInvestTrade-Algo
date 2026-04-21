@@ -2,13 +2,13 @@ import csv
 import sys
 import time
 
-import matplotlib.pyplot as plt
-
 from bruteforce import bruteforce_algo
 from optimized import optimized_algo
 
+import matplotlib.pyplot as plt
+
+
 BUDGET: float = 500.0
-MAX_ACTIONS: int = 21
 
 
 def parse(filepath: str) -> list[dict[str, str | float]]:
@@ -39,7 +39,7 @@ def benchmark(actions: list[dict[str, str | float]]) -> None:
     times_optimized: list[float] = []
     cumul_bruteForce: float = 0.0
     cumul_optimized: float = 0.0
-    sizes = list(range(1, min(len(actions), MAX_ACTIONS) + 1))
+    sizes = list(range(1, len(actions) + 1))
 
     for n in sizes:
         subset = actions[:n]

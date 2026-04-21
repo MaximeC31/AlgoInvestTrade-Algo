@@ -55,7 +55,7 @@ def main() -> None:
     selected_actions, total_profit, total_cost = optimized_algo(actions, BUDGET)
 
     print("Actions achetées :")
-    for action in sorted(selected_actions, key=lambda x: int(str(x["name"]).split("-")[-1])):
+    for action in sorted(selected_actions, key=lambda x: str(x["name"])):
         print(f"{action['name']} — {action['price']}€ — {round(float(action['profit']) * 100, 2)}%")
     print(f"Coût total : {round(total_cost, 2)}€")
     print(f"Bénéfice total : {round(total_profit, 2)}€")
